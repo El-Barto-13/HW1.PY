@@ -44,15 +44,15 @@ def remove():
     print(f'\nКонтакт {del_cnt.get("name")} удален.')
     print("\n" + "=" * 20)
 
-def change():
+def replasement():
     result = search()
     show_contact(result)
     if len(result) == 0:
         return
     index = int(input("Введите индекс контакта, который надо изменить: "))
     name = input("Введите новое имя контакта (пустое значение = не менять): ")
-    phone = input("Введите новый номер телефона контакта (пустое значение = не менять): ")
-    comment = input("Введите новый комментарий контакта (пустое значение = не менять): ")
+    phone = input("Введите новый номер телефона контакта: ")
+    comment = input("Введите новый комментарий контакта : ")
     if len(name) == 0:
         name = phone_book[index].get('name')
     if len(phone) == 0:
@@ -79,7 +79,7 @@ def add_contact():
     phone = input("Введите телефон: ")
     comm = input("Введите комментарий: ")
     phone_book[cur_id] = {'name':name, 'phone':phone, 'comment':comm}
-    print("Контакт {name} успешно добавлени в книгу")
+    print(f'\nКонтакт {name} успешно добавлен в книгу')
     print("\n" + "=" * 20)
 
 def menu() -> int:
@@ -115,7 +115,7 @@ while True:
             result = search()
             show_contact(result)
         case 6:
-            change()
+            replasement()
         case 7:
             remove()
         case 8:
